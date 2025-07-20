@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h2>Your Notes</h2>
+    <a href="#" class="btn btn-outline-light">Add Note</a>
+</div>
+
+<div class="row">
+    {% for note in notes %}
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ note.title }}</h5>
+                    <p class="card-text">
+                        {{ note.content|truncatechars:100 }}
+                    </p>
+                    <a href="#" class="btn btn-sm btn-outline-info">View</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No notes yet.</p>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock content %}

@@ -6,9 +6,9 @@ from django.http import HttpResponseRedirect
 
 
 def display_note(request):
-    note = Notes.objects.all()
+    notes = Notes.objects.all()
     return render(
         request,
         "display_note.html",
-        {"note": note},
+        {"notes": notes},
     )
