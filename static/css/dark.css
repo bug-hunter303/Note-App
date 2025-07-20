@@ -32,3 +32,16 @@
   transition: none !important;
   text-shadow: none !important;
 }
+
+.card-dark {
+  background-color: #121212; /* darker than Bootstrap's bg-dark */
+  color: #f0f0f0;
+  border: 1px solid #2a2a2a;
+  transition: transform 0.2s ease;
+}
+
+.card-dark:hover {
+  background-color: #1a1a1a; /* slightly lighter on hover */
+  transform: scale(1.01);
+}
+

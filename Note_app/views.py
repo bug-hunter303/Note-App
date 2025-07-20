@@ -12,3 +12,12 @@ def display_note(request):
         "display_note.html",
         {"notes": notes},
     )
+    
+def edit_note(request,id):
+    note = Notes.objects.get(id = id)
+    return render(
+        request,
+        "edit_note.html",
+        {"note": note},
+    )
+    
