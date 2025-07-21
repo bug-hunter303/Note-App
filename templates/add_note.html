@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col">
+            <div class="post">
+                <form method="post">
+                {% csrf_token %}
+
+                    <div class="mb-3">
+                        <br>
+                        <label for="{{ form.title.id_for_label }}">Title:</label>
+                        {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.content.id_for_label }}">Content:</label>
+                        {{ form.content }}
+                    </div>
+
+                    
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'notes-add' %}" class="btn btn-outline-success center">ADD</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

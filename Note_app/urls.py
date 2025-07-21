@@ -20,5 +20,5 @@ from Note_app import views
 
 urlpatterns = [
     path('',views.display_note, name="notes-display"),
-    path('edit/<int:id>/',views.edit_note, name="notes-edit"),
+    path('add/',views.add_note, name="notes-add"),
 ]

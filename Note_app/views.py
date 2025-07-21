@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from Note_app.models import Notes
 from django.http import HttpResponseRedirect
+from Note_app.forms import NotesForm
 
 # Create your views here.
 
@@ -12,12 +13,19 @@ def display_note(request):
         "display_note.html",
         {"notes": notes},
     )
-    
-def edit_note(request,id):
-    note = Notes.objects.get(id = id)
-    return render(
-        request,
-        "edit_note.html",
-        {"note": note},
-    )
+
+def add_note(request):
+    if request.method == "GET":
+        form = NotesForm()
+        return render(
+            request,
+            "add_note.html",
+            {"form": form},
+        )
+    else:
+        form = NotesForm(request.Notes)
+        if form.is_valid():
+            form.save()
+            return redirect("notes-display")  # goes to your main notes page
+        return render(request, "add_note.html", {"form": form})
     
