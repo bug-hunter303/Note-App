@@ -27,10 +27,28 @@ def add_note(request):
         if form.is_valid():
             form.save()
             return redirect("notes-display")  # goes to your main notes page
-        return render(request, "add_note.html", {"form": form})
+        return render(
+            request, 
+            "add_note.html", 
+            {"form": form}
+        )
     
 def delete_note(request,pk):
     note = Notes.objects.get(pk = pk)
     note.delete()
     return HttpResponseRedirect('/')
 
+def edit_note(request , pk):
+    note = Notes.objects.get(pk = pk)
+    
+    if request.method == 'POST':
+        note.title = request.POST['title']
+        note.content = request.POST['content']
+        note.save()
+        return HttpResponseRedirect('/')    
+    else:
+        return render(
+            request,
+            'edit_note.html',
+            {'note': note}
+        )

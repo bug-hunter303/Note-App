@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class="row">
-        <div class="col">
-            <form action="" method="post" class="form-control">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <form action="" method="post">
                 {% csrf_token %}
-                <input type="text" name="title" value="{{ post.title }}" class="form-control">
-                <input type = 'text' name="" value="{{ post.content }}" class="form-control">
-                    <button type="submit" class="btn btn-success mt-3 d-block mx-auto">
-                        Edit
-                    </button>
+                
+                <!-- Title input -->
+                <div class="form-group mb-3">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="{{ note.title }}" class="form-control" id="title">
+                </div>
+
+                <!-- Content input -->
+                <div class="form-group mb-3">
+                    <label for="content">Content</label>
+                    <textarea name="content" class="form-control" rows="5" id="content">{{ note.content }}</textarea>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-success w-100" >Edit</button>
             </form>
         </div>
+    </div>
 </div>
-
-
 {% endblock content %}

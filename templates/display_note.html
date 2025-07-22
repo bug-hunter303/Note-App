@@ -19,7 +19,7 @@
                     </p>
                     <div class="d-flex justify-content-between
                      mt-3">
-                        <a href="#" class="btn btn-sm btn-outline-info">Edit</a>
+                        <a href="{% url 'notes-edit' note.pk %}" class="btn btn-sm btn-outline-info">Edit</a>
                         <a href="{% url 'notes-delete' note.pk %}" class="btn btn-sm btn-outline-danger ">Delete</a>
                     </div>
                 </div>

@@ -45,3 +45,8 @@
   transform: scale(1.01);
 }
 
+input, textarea {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
