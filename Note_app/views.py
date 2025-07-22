@@ -23,9 +23,14 @@ def add_note(request):
             {"form": form},
         )
     else:
-        form = NotesForm(request.Notes)
+        form = NotesForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("notes-display")  # goes to your main notes page
         return render(request, "add_note.html", {"form": form})
     
+def delete_note(request,pk):
+    note = Notes.objects.get(pk = pk)
+    note.delete()
+    return HttpResponseRedirect('/')
+
