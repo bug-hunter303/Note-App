@@ -2,27 +2,29 @@
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card p-4">
-            <form action="" method="post">
-                {% csrf_token %}
-                
-                <!-- Title input -->
-                <div class="form-group mb-3">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" value="{{ note.title }}" class="form-control" id="title">
-                </div>
-
-                <!-- Content input -->
-                <div class="form-group mb-3">
-                    <label for="content">Content</label>
-                    <textarea name="content" class="form-control" rows="5" id="content">{{ note.content }}</textarea>
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-success w-100" >Edit</button>
-            </form>
+  <div class="col-md-6">
+    <br>
+    <h2 class="text-center text-light">Edit your note</h2>
+    <div class="card p-4 bg-dark text-light rounded">
+      <form action="" method="post">
+        {% csrf_token %}
+        <!-- Title input -->
+        <div class="form-group mb-3">
+          <label for="title">Title</label>
+          <input type="text" name="title" value="{{ note.title }}" class="form-control bg-secondary text-light border-0" id="title">
         </div>
+
+        <!-- Content input -->
+        <div class="form-group mb-3">
+          <label for="content">Content</label>
+          <textarea name="content" class="form-control bg-secondary text-light border-0" rows="5" id="content">{{ note.content }}</textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-success w-100">Edit</button>
+      </form>
     </div>
+  </div>
 </div>
+
 {% endblock content %}

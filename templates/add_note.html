@@ -1,39 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class="container bg-dark text-light p-4 rounded">
-    <h2 class="text-center mb-4">Add Note</h2>
-    <div class="row">
-        <div class="col">
-            <div class="post">
-                <form method="post">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <br>
+        <h2 class="text-center mb-4">Add Note</h2>
+        <div class="card bg-dark text-light p-4">
+            <form method="post">
                 {% csrf_token %}
 
-                    <div class="mb-3">
-                        <br>
-                        <label for="{{ form.title.id_for_label }}">Title:</label>
-                        {{ form.title }}
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="{{ form.content.id_for_label }}">Content:</label>
-                        {{ form.content }}
-                    </div>
-                    <div class="d-flex justify-content-center">
-                         <button type="submit" class="btn btn-outline-success">
-                            ADD
-                        </button>
-                    </div>
-                    
-                    </form>
-                    
-                    
+                <!-- Title input -->
+                <div class="form-group mb-3">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control bg-secondary text-light border-0" id="title">
                 </div>
-            </div>
+
+                <!-- Content input -->
+                <div class="form-group mb-3">
+                    <label for="content">Content</label>
+                    <textarea name="content" class="form-control bg-secondary text-light border-0" rows="5" id="content"></textarea>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-success w-100">ADD</button>
+            </form>
         </div>
     </div>
 </div>
-
-
 {% endblock content %}
